@@ -1,0 +1,19 @@
+<template name="ownTheDayComponent">
+    <div class="component-wrapper own-the-day-component">
+        {{#if isLoaded}}
+            <div class="own-the-day-container mb-3 ml-auto mr-auto ml-lg-auto mr-lg-0 text-center">
+                <a href="https://owntheday.io" target="_new"><h5 class="title text-uppercase">Own the Day<small class="text-muted">.io</small></h5></a>
+                <div class="card border-info">
+                    <div class="card-header">{{getMonth}}</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <span class="day">{{getDay}}</span>
+                            <h5><a href="https://owntheday.io/account/{{ownerAddress}}" target="_new"><span class="badge badge-secondary owner-label" style="{{getColorFromAddress}}">{{ownerName}}</span></a></h5>
+                        </p>
+                    </div>
+                </div>
+                <p class="text-right"><span class="badge badge-primary" data-toggle="day-popover" data-content="{{getPopoverTitle}}" title="{{getPopoverContent}}">learn more</span></p>
+            </div>
+        {{/if}}
+    </div>
+</template>

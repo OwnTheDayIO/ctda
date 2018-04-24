@@ -1,0 +1,91 @@
+// Reference Variables & Mixins
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//@import (reference) "/imports/styles/lib/mixins.scss";
+
+// Take the Torch Component
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.component-wrapper {
+  &.claim-component {
+
+    .card.take-the-torch {
+      background-color: rgba(50,56,62,0.9);
+
+      .card-body {
+        .card-text {
+          .input-group-spinner {
+            position: relative;
+
+            .form-control {
+              padding-top: 1.3rem;
+              padding-bottom: 0;
+            }
+
+            &:after {
+              display: block;
+              @include pos-abs(2px, auto, auto, 0);
+              width: 100%;
+              font-size: 1rem;
+              text-transform: uppercase;
+              text-align: center;
+              content: "Ethereum";
+              z-index: 5;
+            }
+          }
+
+          .btn-increment,
+          .btn-decrement {
+            padding-top: 0.9rem;
+            border-color: rgba(0,0,0,0);
+          }
+
+          .btn-group {
+            margin: 1.5rem 0 0;
+
+            .btn {
+              font-size: 1.3rem;
+
+              &.btn-success {
+                font-size: 1.6rem;
+              }
+            }
+
+            .btn-success {
+              &:disabled {
+                background-image: linear-gradient(#78cc78, #62c462 60%, #53be53);
+                background-repeat: no-repeat;
+                border-color: rgba(0, 0, 0, 0.6);
+                filter: none;
+                color: #fff;
+                opacity: 1;
+              }
+            }
+          }
+
+          .total-kms {
+            margin: 0.75rem 0 0;
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .component-wrapper {
+    &.claim-component {
+
+      .card.take-the-torch {
+        .card-body {
+          .card-text {
+            .btn-group {
+              margin: 1.5rem 0 0;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}

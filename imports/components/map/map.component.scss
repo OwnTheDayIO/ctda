@@ -1,0 +1,27 @@
+
+// Map Component
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.component-wrapper {
+  &.map-component {
+    margin-bottom: 30px;
+
+    .header-text {
+      em {
+        font-size: 1.1rem;
+        margin-left: 10px;
+      }
+      .btn-link {
+        font-size: 1.2rem;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+
+    //.map-container {
+    //  width: 100%;
+    //  max-width: 100%;
+    //  height: 500px;
+    //}
+
+  }
+}

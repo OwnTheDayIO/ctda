@@ -1,0 +1,236 @@
+<template name="accountsComponent">
+    <div class="component-wrapper accounts-component">
+
+        {{#if isLoading}}
+            {{> loading}}
+        {{else}}
+            <div class="row">
+                <div class="{{#if isCurrentUser}}col{{else}}col-xl-8 offset-xl-2{{/if}}">
+
+                    <div class="row">
+                        <div class="col title-col">
+                            <div class="media mb-5">
+                                <div class="align-self-start mr-5">{{> dapp_identicon identity=getAddress}}</div>
+                                <div class="media-body">
+                                    {{#if isCurrentUser}}
+                                        <h3 class="player-name editable mt-0"><span title="{{getAddress}}" data-toggle="modal" data-target="#setNicknameModal" role="button">{{getFriendlyName}}</span></h3>
+                                    {{else}}
+                                        <h3 class="player-name mt-0"><span title="{{getAddress}}">{{getFriendlyName}}</span></h3>
+                                    {{/if}}
+                                    {{#if isSaving}}
+                                        <p>{{saveStatus}}</p>
+                                    {{else}}
+                                        {{#if isNoteEditMode}}
+                                            <div class="form-group notes-editor">
+                                                <div class="input-group">
+                                                    <input class="form-control" id="noteEdit" placeholder="URL and/or Notes" value="{{getAccountNote}}">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-secondary" type="button" data-action="cancel-note"><i class="fas fa-times"></i></button>
+                                                        <button class="btn btn-success" type="button" data-action="save-note"><i class="fas fa-check"></i></button>
+                                                    </div>
+                                                </div>
+                                                <small id="emailHelp" class="form-text text-muted">{{_ 'generic.profanities'}}</small>
+                                            </div>
+                                        {{else}}
+                                            <p class="account-note {{#if isCurrentUser}}editable{{/if}}">{{getAccountNote}}{{#if isCurrentUser}} <i class="fas fa-pencil-alt"></i>{{/if}}</p>
+                                        {{/if}}
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                        {{#if isLeader}}
+                            <div class="col-sm-4 text-center">
+                                {{#if isPriceLeader}}
+                                    <div class="medal-col" data-toggle="account-popover" data-content="{{getHighestPrice}} {{_ 'generic.etherUnit'}}" title="Price Leader">
+                                        <div class="alert alert-primary">
+                                            <div class="medal {{getPriceMedal}}"></div>
+                                        </div>
+                                    </div>
+                                {{/if}}
+                                {{#if isMileageLeader}}
+                                    <div class="medal-col" data-toggle="account-popover" data-content="{{getHighestMileage}} KMS" title="Distance Leader">
+                                        <div class="alert alert-primary">
+                                            <div class="medal {{getMileageMedal}}"></div>
+                                        </div>
+                                    </div>
+                                {{/if}}
+                            </div>
+                        {{/if}}
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col">
+                            <div class="media mb-5">
+                                {{{getSvg '/img/runner.svg' 'torch-runner align-self-start mr-3'}}}
+                                <div class="media-body">
+                                    <p class="text-uppercase text-muted">Distance Run</p>
+                                    <h4 class="mt-2" data-toggle="account-popover" data-content="{{getTokenBalance}} KMS" title="Distance Run">{{shortenValue getTokenBalance 11}} <strong>KMS</strong></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="media mb-5">
+                                {{{getSvg '/img/dividends.svg' 'dividends align-self-start mr-3'}}}
+                                <div class="media-body">
+                                    <p class="text-uppercase text-muted">Dividends</p>
+                                    <h4 class="mt-2" data-toggle="account-popover" data-content="{{getTotalDividends}} {{_ 'generic.etherUnit'}}" title="Dividends">{{shortenValue getTotalDividends 11}} <strong>{{_ 'generic.etherUnit'}}</strong></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="media mb-5">
+                                {{{getSvg '/img/eth-coin.svg' 'ethereum-coin align-self-start mr-3'}}}
+                                <div class="media-body">
+                                    <p class="text-uppercase text-muted">Profits</p>
+                                    <h4 class="mt-2" data-toggle="account-popover" data-content="{{getProfits}} {{_ 'generic.etherUnit'}}" title="Profits">{{shortenValue getProfits 11}} <strong>{{_ 'generic.etherUnit'}}</strong></h4>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-lg-center">
+                        <div class="col-lg-10">
+                            {{> mapComponent accountId=getAddress}}
+                        </div>
+                    </div>
+
+                </div>
+                {{#if isCurrentUser}}
+                    <div class="col-md-12 col-lg-4 col-xl-5 text-lg-right">
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-6 col-lg-12 col-xl-8 mt-3 ml-xl-auto">
+
+                                <div class="card border-light mb-5">
+                                    <div class="card-header text-uppercase">Ethereum Balance</div>
+                                    <div class="card-body">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-default" type="button" data-action="toggle-balance">
+                                                    {{#if isBalanceVisible}}
+                                                        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                                                    {{else}}
+                                                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                                                    {{/if}}
+                                                </button>
+                                            </div>
+                                            <input class="form-control" placeholder="#.##" value="{{getEtherBalance}}" disabled>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">{{_ 'generic.etherUnit'}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card border-light mb-5">
+                                    <div class="card-header text-uppercase">Torch Dividends</div>
+                                    <div class="card-body">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                {{#if hasTorchDividends}}
+                                                    <button class="btn btn-success" type="button" data-toggle="modal" data-target="#withdrawModal">Withdraw</button>
+                                                {{else}}
+                                                    <button class="btn btn-success disabled" type="button" disabled>Withdraw</button>
+                                                {{/if}}
+                                            </div>
+                                            <input class="form-control" readonly value="{{getTorchDividends}}">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">{{_ 'generic.etherUnit'}}</span>
+                                            </div>
+                                        </div>
+                                        <p class="card-text">These are the dividends you have earned from Torch Runners taking the Torch from you! Safely withdraw at anytime!</p>
+                                    </div>
+                                </div>
+
+                                <div class="card border-light mb-5">
+                                    <div class="card-header text-uppercase">KMS Tokens</div>
+                                    <div class="card-body">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                {{#if hasTokens}}
+                                                    <button class="btn btn-warning" type="button" data-toggle="modal" data-target="#sellModal">Sell</button>
+                                                {{else}}
+                                                    <button class="btn btn-warning disabled" type="button" disabled>Sell</button>
+                                                {{/if}}
+                                            </div>
+                                            <input id="tokensToSell" class="form-control" placeholder="Amount of Tokens" value="{{getTokenBalance}}" aria-label="Amount of Tokens to Sell">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">KMS</span>
+                                            </div>
+                                        </div>
+                                        <p class="card-text">These are the Torch-Tokens (KMS) you hold, and below is their value along with the dividends they have earned! The longer you hold, the more you earn!</p>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Token Value: {{getTokenTotalValue}} {{_ 'generic.etherUnit'}}</li>
+                                        <li class="list-group-item">Token Dividends: {{getTokenDividends}} {{_ 'generic.etherUnit'}}</li>
+                                    </ul>
+                                </div>
+
+                                <div class="alert alert-primary text-left">
+                                    <div class="form-group">
+                                        <fieldset>
+                                            <label class="control-label" for="referralLink">Your Referral Link:</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <button class="btn btn-secondary" type="button" data-toggle="copied-tooltip" title="Copied!" data-clipboard-target="#referralLink"><i class="far fa-copy"></i></button>
+                                                </div>
+                                                <input class="form-control" id="referralLink" readonly value="{{getReferralLink}}">
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+        {{/if}}
+
+        <div class="modal fade" id="withdrawModal" tabindex="-1" role="dialog" aria-labelledby="cashoutModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="cashoutModalLabel">Are you sure you want to Withdraw?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you would like to Withdraw your Torch Dividends?</p>
+                        <p class="mb-3">Cashing out your Torch Dividends will not affect your Token Dividends; you will continue to earn dividends from future Torch Runners.</p>
+                        <p>Total Profit on Withdraw: {{getTorchDividends}} {{_ 'generic.etherUnit'}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">cancel</button>
+                        <button type="button" class="btn btn-success" data-action="withdraw-torch-dividends">Withdraw</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="sellModal" tabindex="-1" role="dialog" aria-labelledby="sellModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="sellModalLabel">Are you sure you want to Sell?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you would like to Sell your KMS Tokens?</p>
+                        <p class="mb-3">If you sell all of your KMS Tokens you will no longer earn dividends from future Torch Runners.</p>
+                        <p>Total Tokens you will sell: [AMOUNT-TO-SELL] KMS</p>
+                        <p>Total Profits from the sale of Tokens: [TODO] {{_ 'generic.etherUnit'}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">cancel</button>
+                        <button type="button" class="btn btn-warning" data-action="sell-tokens">Sell</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</template>

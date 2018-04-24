@@ -1,0 +1,112 @@
+// Accounts Component
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.component-wrapper {
+  &.accounts-component {
+    margin-bottom: 30px;
+
+    .title-col {
+      //min-width: 300px;
+
+      .media {
+        .media-body {
+          .player-name {
+            cursor: pointer;
+          }
+          .text-muted {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .dapp-identicon {
+        @include size(50px);
+      }
+
+      .account-note {
+        .fas {
+          margin-left: 20px;
+          font-size: 0.9rem;
+          color: $gray-900;
+        }
+        &:hover {
+          .fas {
+            color: $gray-500;
+          }
+        }
+      }
+
+      .notes-editor {
+        .btn {
+          width: 50px;
+        }
+      }
+    }
+
+    .medal-col {
+      display: inline-block;
+      width: 66px;
+      margin-left: 10px;
+      margin-right: 10px;
+
+      .alert {
+        border: 1px solid $gray-700;
+
+        .medal {
+          width: 40px;
+          height: 70px;
+          margin: -8px 0 0 -1px;
+        }
+      }
+    }
+
+    //
+    // SVGs
+    //
+    .torch-runner {
+      transform: scaleX(-1);
+    }
+    .torch-runner,
+    .dividends,
+    .ethereum-coin {
+      width: 60px;
+      filter: drop-shadow(-1px 2px 0 $black);
+
+      .cls_1 {
+        fill: $gray-700;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .component-wrapper {
+    &.accounts-component {
+
+      .medal-col {
+        margin-left: 0;
+        margin-right: 20px;
+      }
+
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .component-wrapper {
+    &.accounts-component {
+
+      .dapp-identicon {
+        @include size(64px);
+      }
+
+      //
+      // SVGs
+      //
+      .torch-runner,
+      .dividends,
+      .ethereum-coin {
+        width: 80px;
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<template name="torchRunnerComponent">
+    <div class="component-wrapper torch-runner-component">
+        {{#if isLoaded}}
+
+            <div class="card border-warning torch-runner text-center">
+                <div class="card-body">
+                    <h3><span class="badge badge-info owner-label" style="{{getColorFromAddress}}" data-goto="{{getTorchRunnerAddress}}">{{getTorchRunner}}</span></h3>
+                    <p><em>is currently running the torch!</em></p>
+                </div>
+            </div>
+
+        {{else}}
+            {{#if showLoading}}
+                {{> loading}}
+            {{/if}}
+        {{/if}}
+    </div>
+</template>

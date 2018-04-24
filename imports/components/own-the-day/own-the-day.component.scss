@@ -1,0 +1,42 @@
+// Reference Variables & Mixins
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//@import (reference) "/imports/styles/lib/mixins.scss";
+
+// Own the Day Component
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.component-wrapper {
+  &.own-the-day-component {
+
+    .own-the-day-container {
+      width: 22rem;
+
+      .card {
+        .card-body {
+          .card-text {
+            .day {
+              font-size: ($font-size-base * 3);
+            }
+            h5 {
+              margin-top: 5px;
+              margin-bottom: -5px;
+
+              .owner-label {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+
+      .badge.badge-primary {
+        color: $gray-600;
+        cursor: help;
+
+        &:hover {
+          color: $gray-400;
+        }
+      }
+    }
+
+  }
+}

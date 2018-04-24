@@ -1,0 +1,29 @@
+<template name="claimComponent">
+    <div class="component-wrapper claim-component">
+
+        <div class="card take-the-torch border-success mb-3">
+            <div class="card-body text-center">
+                <div class="card-text">
+                    <input id="torchOfferPrice" type="number" value="{{getCurrentOffer}}" required min="0.005" max="1000000" step="0.005" data-decimals="3" name="offerPrice" class="form-control">
+
+                    <div class="btn-group btn-group-lg" role="group" aria-label="Take the Torch">
+                        <button type="button" class="btn btn-secondary" data-action="min-price">min</button>
+                        {{#if canTakeTorch}}
+                            <button type="button" class="btn btn-success" data-action="take-torch">Take the Torch!</button>
+                        {{else}}
+                            {{#if isHoldingTorch}}
+                                <button type="button" class="btn btn-success" data-toggle="claim-popover" data-content="You are already holding the Torch!" title="Torch Runner" disabled>Torch Runner!</button>
+                            {{else}}
+                                <button type="button" class="btn btn-success" data-toggle="claim-popover" data-content="{{getOfflineReason}}" title="Torch Out-of-Reach" disabled>Take the Torch!</button>
+                            {{/if}}
+                        {{/if}}
+                        <button type="button" class="btn btn-secondary" data-action="max-price">max</button>
+                    </div>
+
+                    <p class="total-kms text-muted">{{shortenValue getPriceToTokens 11}} KMS</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</template>

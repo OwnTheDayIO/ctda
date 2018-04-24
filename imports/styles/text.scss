@@ -1,0 +1,7 @@
+// Reference Variables & Mixins
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//@import (reference) "/imports/styles/lib/mixins.scss";
+
+.text-ellipsis {
+  @include text-ellipsis;
+}

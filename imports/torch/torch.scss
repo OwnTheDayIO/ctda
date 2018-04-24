@@ -1,0 +1,60 @@
+// Reference Variables & Mixins
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//@import (reference) "/imports/styles/lib/mixins.scss";
+
+
+// Torch Page
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.component-wrapper {
+  &.torch-page {
+
+    .torch-bg {
+      background-image: url('/img/torch/torch@1x.jpeg');
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    .claim-component-row {
+      margin-top: 40vh;
+    }
+
+  }
+}
+
+@media screen and (min-height: 500px) {
+  .component-wrapper {
+    &.torch-page {
+
+      .torch-bg {
+        background-image: url('/img/torch/torch@2x.jpeg');
+      }
+
+    }
+  }
+}
+
+@media screen and (min-height: 1000px) {
+  .component-wrapper {
+    &.torch-page {
+
+      .torch-bg {
+        background-image: url('/img/torch/torch@3x.jpeg');
+      }
+
+    }
+  }
+}
+
+@media screen and (min-height: 1500px) {
+  .component-wrapper {
+    &.torch-page {
+
+      .torch-bg {
+        background-image: url('/img/torch/torch@4x.jpeg');
+      }
+
+    }
+  }
+}

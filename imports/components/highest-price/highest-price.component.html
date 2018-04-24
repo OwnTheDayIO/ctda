@@ -1,0 +1,26 @@
+<template name="highestPriceComponent">
+    <div class="component-wrapper highest-price-component {{fakeModeClass}}">
+
+        {{#if isLoaded}}
+            <h6 class="mb-3 text-uppercase text-center">{{_ 'component.highestPrices.title'}}</h6>
+
+            <div class="list-group leader-board left-side mb-5">
+                {{#each leader in getLeaders}}
+                    {{#let leaderIdx=@index}}
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start {{getLeaderMedal leaderIdx}}" data-goto="{{getLeaderAddress leader}}">
+                            <div class="d-flex w-100 justify-content-between">
+                                <p class="mb-1 owner-label">{{getLeaderName leader}}</p>
+                            </div>
+                            <small class="text-muted">{{getLeaderPrice leader}} {{_ 'generic.etherUnit'}}</small>
+                        </a>
+                    {{/let}}
+                {{/each}}
+            </div>
+        {{else}}
+            {{#if showLoading}}
+                {{> loading}}
+            {{/if}}
+        {{/if}}
+
+    </div>
+</template>

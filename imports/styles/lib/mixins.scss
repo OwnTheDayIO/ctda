@@ -1,0 +1,68 @@
+// Reference Variables & Mixins
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+////@import (reference) "variables.scss";
+
+
+@mixin position($type, $top: auto, $right: auto, $bottom: auto, $left: auto, $width: auto, $height: auto) {
+  position: $type;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  width: $width;
+  height: $height;
+}
+
+@mixin coords($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin pos-rel($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: relative;
+  @include coords($top, $right, $bottom, $left);
+}
+@mixin pos-abs($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: absolute;
+  @include coords($top, $right, $bottom, $left);
+}
+@mixin pos-fix($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: fixed;
+  @include coords($top, $right, $bottom, $left);
+}
+
+@mixin text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+
+
+
+//
+// Deprecated in favour of AutoPrefixer
+//
+
+@mixin box-shadow($shadow) {
+//  -webkit-box-shadow: $shadow;
+//  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin transition-all($delay: 0.35s) {
+//  -webkit-transition: all $delay;
+//     -moz-transition: all $delay;
+          transition: all $delay;
+}
+
+@mixin background-cover() {
+//  -webkit-background-size: cover;
+//     -moz-background-size: cover;
+//       -o-background-size: cover;
+          background-size: cover;
+}

@@ -1,0 +1,15 @@
+<template name="mapComponent">
+    <div class="component-wrapper map-component">
+
+        <p class="header-text text-uppercase text-muted text-left">
+            Map Marker
+            <em>{{saveStatus}}</em>
+            {{#if hasChanges}}<small> <button class="btn btn-link" data-action="save">save</button>|<button class="btn btn-link text-muted" data-action="reset">reset</button></small>{{/if}}</p>
+        <div class="embed-responsive embed-responsive-16by9 rounded">
+            <div class="map-container embed-responsive-item">
+                {{> googleMap name="worldMap" options=mapOptions}}
+            </div>
+        </div>
+
+    </div>
+</template>

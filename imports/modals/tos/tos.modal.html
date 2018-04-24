@@ -1,0 +1,52 @@
+<template name="tosModal">
+    <div class="modal fade tos-modal" id="tosModal" tabindex="-1" role="dialog" aria-labelledby="tosModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tosModalLabel">{{_ 'tos.topBanner.title'}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="{{_ 'generic.close'}}">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="container">
+                        <div class="row game-breakdown">
+                            <div class="alert alert-light">
+
+                                <p>{{{_ 'tos.intro.line1'}}}</p>
+                                <p>{{{_ 'tos.intro.line2'}}}</p>
+                                <p>{{{_ 'tos.intro.line3'}}}</p>
+                                <p>{{{_ 'tos.intro.line4'}}}</p>
+                                <p>{{{_ 'tos.intro.line5'}}}</p>
+
+                                <ol>
+                                    <li><b>{{{_ 'tos.terms.section1.title'}}}</b><br>{{{_ 'tos.terms.section1.note'}}}</li>
+                                    <li><b>{{{_ 'tos.terms.section2.title'}}}</b><br>{{{_ 'tos.terms.section2.note'}}}</li>
+                                    <li><b>{{{_ 'tos.terms.section3.title'}}}</b><br>{{{_ 'tos.terms.section3.note'}}}</li>
+                                    <li><b>{{{_ 'tos.terms.section4.title'}}}</b><br>{{{_ 'tos.terms.section4.note'}}}</li>
+                                    <li><b>{{{_ 'tos.terms.section5.title'}}}</b><br>{{{_ 'tos.terms.section5.note'}}}</li>
+                                    <li><b>{{{_ 'tos.terms.section6.title'}}}</b><br>{{{_ 'tos.terms.section6.note'}}}</li>
+                                    <li><b>{{{_ 'tos.terms.section7.title'}}}</b><br>{{{_ 'tos.terms.section7.note'}}}</li>
+                                    <li><b>{{{_ 'tos.terms.section8.title'}}}</b><br>{{{_ 'tos.terms.section8.note'}}}</li>
+                                    <li><b>{{{_ 'tos.terms.section9.title'}}}</b><br>{{{_ 'tos.terms.section9.note'}}}</li>
+                                    <li><b>{{{_ 'tos.terms.section10.title'}}}</b><br>{{{_ 'tos.terms.section10.note'}}}</li>
+                                    <li><b>{{{_ 'tos.terms.section11.title'}}}</b><br>{{{_ 'tos.terms.section11.note'}}}</li>
+                                    <li><b>{{{_ 'tos.terms.section12.title'}}}</b><br>{{{_ 'tos.terms.section12.note'}}}</li>
+                                    <li><b>{{{_ 'tos.terms.section13.title'}}}</b><br>{{{_ 'tos.terms.section13.note'}}}</li>
+                                    <li><b>{{{_ 'tos.terms.section14.title'}}}</b><br>{{{_ 'tos.terms.section14.note'}}}</li>
+                                    <li><b>{{{_ 'tos.terms.section15.title'}}}</b><br>{{{_ 'tos.terms.section15.note'}}}</li>
+                                </ol>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">{{_ 'generic.close'}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

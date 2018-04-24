@@ -1,0 +1,41 @@
+// Reference Variables & Mixins
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+////@import (reference) "mixins.scss";
+
+// Fix color of AutoComplete Input BG
+input:-webkit-autofill {
+  &, &:hover, &:focus, &:active {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+  }
+}
+
+// Fix default focus style
+*:focus {
+  outline: none !important;
+}
+
+.owner-label {
+  @include text-ellipsis;
+  text-shadow: none;
+  cursor: pointer;
+}
+
+.input-group {
+  .btn {
+    border: 0;
+  }
+}
+
+.editable {
+  cursor: pointer;
+}
+
+@include media-breakpoint-up(sm) {
+  .modal {
+    .modal-lg {
+      .modal-body {
+        padding: 1rem 3rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<template name="account">
+    <div class="component-wrapper account-page">
+
+        {{> accountWarningComponent}}
+
+        {{#if hasValidAccountAndNetwork}}
+            {{> accountsComponent accountId=getAccountId}}
+        {{/if}}
+
+    </div>
+
+    {{>footerComponent}}
+</template>

@@ -1,0 +1,26 @@
+<template name="highestMileageComponent">
+    <div class="component-wrapper highest-mileage-component {{fakeModeClass}}">
+
+        {{#if isLoaded}}
+            <h6 class="mb-3 text-uppercase text-center">{{_ 'component.highestMileage.title'}}</h6>
+
+            <div class="list-group leader-board right-side mb-5">
+                {{#each leader in getLeaders}}
+                    {{#let leaderIdx=@index}}
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start {{getLeaderMedal leaderIdx}}" data-goto="{{getLeaderAddress leader}}">
+                            <div class="d-flex w-100 justify-content-between">
+                                <p class="ml-sm-auto mb-1 owner-label">{{getLeaderName leader}}</p>
+                            </div>
+                            <small class="text-muted">{{getLeaderMileage leader}} KMS</small>
+                        </a>
+                    {{/let}}
+                {{/each}}
+            </div>
+        {{else}}
+            {{#if showLoading}}
+                {{> loading}}
+            {{/if}}
+        {{/if}}
+
+    </div>
+</template>

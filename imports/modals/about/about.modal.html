@@ -1,0 +1,54 @@
+<template name="aboutModal">
+    <div class="modal fade about-modal" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="aboutModalLabel">{{_ 'about.topBanner.title'}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="{{_ 'generic.close'}}">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row game-breakdown">
+                        <div class="col">
+                            <h4>Running the Torch is Simple and Profitable!</h4>
+                            <div class="ml-md-5 mr-md-5">
+                                <p>As a Cryptolympic Torch Runner you will be rewarded with KMS Tokens which earn dividends from everyone who takes the Torch after you!  Your KMS Tokens represent the distance in kilometers that you Ran the Torch.</p>
+                                <p>As an added Bonus, you will receive a small portion of the Torch Price from the next 3 Torch Runners that follow you &dash; which could be Huge if they run a good distance!</p>
+                                <p class="lead">Earn solid dividends and possibly win big at the same time!</p>
+                                <p>And remember, you can Run the Torch as often as you like &dash; the more you Run the more you Earn!</p>
+                                <p>Will you take home the Gold Medal as one of the Greatest Cryptolympic Torch Runners?</p>
+                            </div>
+
+                            <h4 class="mt-5">More ways to Win!</h4>
+                            <div class="ml-md-5 mr-md-5">
+                                <p>Whoever <a href="https://owntheday.io" target="_new">Owns the Day</a> will win a small portion of the Torch Price for every Torch Run on that day!</p>
+                                <p>If you <a href="https://owntheday.io" target="_new">Own the Day</a> when you Run the Torch, you will win Bonus KMS Tokens giving you a boost in the distance you run!</p>
+                            </div>
+
+                            <h4 class="mt-5">But wait!</h4>
+                            <div class="ml-md-5 mr-md-5">
+                                <p>Do you want to earn even more dividends?</p>
+                                <p>You can help others Run the Torch by being a Cryptolympic Promoter earning you even more dividends when people follow your Referral Link!</p>
+                                <p>Once you are a Torch Runner and have earned some KMS Tokens, you will be given a Referral Link to share with others! However, there is a minimum requirement of [TODO] KMS Tokens to be a Cryptolympic Promoter.  You will only gain the referral dividends if you hold these tokens when your referred Runner takes the Torch.</p>
+                            </div>
+
+                            <h4 class="mt-5">KMS Tokens?</h4>
+                            <div class="ml-md-5 mr-md-5">
+                                <p>KMS Tokens are a Proof-of-Stake Token that is ERC20 compatible.  KMS stands for Kilometers and represent the distance you have Run the Torch.</p>
+                                <p>Since this is a Proof-of-Stake Token, you will only earn dividends as long as you hold Tokens and the amount of dividends is directly related to the number of Tokens you hold.</p>
+                                <p>For more information, please see our Token Contract.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">{{_ 'generic.close'}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

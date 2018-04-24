@@ -1,0 +1,60 @@
+<template name="bodyLayout">
+    <div class="component-wrapper root-component body-layout-component">
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand" href="/"><span class="brand-image-wrapper">{{{getSvg '/flame-shadow.svg' 'brand-image'}}}</span>&nbsp;<span class="brand-text">{{_ 'body.navbar.title'}}</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#torchNav" aria-controls="torchNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="torchNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item {{getActiveClass 'torch'}}">
+                        <a class="nav-link" href="/">Torch</a>
+                    </li>
+                    <li class="nav-item {{getActiveClass 'account'}}">
+                        <a class="nav-link" href="{{getAccountRoute}}">Account</a>
+                    </li>
+
+                    {{#if hasValidAccountAndNetwork}}
+                        <li class="nav-item owner-label-wrapper">
+                            <a href="#" class="text-large" data-toggle="modal" data-target="#setNicknameModal" role="button" aria-expanded="false">
+                                <span class="badge badge-info owner-label" style="{{getColorFromAddress}}">{{getAccountNickname}}</span>
+                            </a>
+                        </li>
+                    {{/if}}
+
+                    <li class="nav-item">
+                        {{#if hasInvalidAccountOrNetwork}}
+                            <span class="ethereum-offline" data-toggle="tooltip" data-placement="bottom" title="{{getOfflineReason}}" data-original-title="{{getOfflineReason}}"></span>
+                        {{else}}
+                            {{> dapp_identicon identity=getAccountAddress class="dapp-small"}}
+                        {{/if}}
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="languageMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{getActiveLangName}}</a>
+                        <div class="dropdown-menu" aria-labelledby="languageMenu">
+                            {{#each lang in getLanguages}}
+                                <a href="#" class="dropdown-item {{getActiveLangClass lang}}" data-action="change-lang" data-lang="{{lang}}">{{getLangName lang}}</a>
+                            {{/each}}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main" class="container-fluid content-primary">
+
+            {{> Template.dynamic template=main data=componentData}}
+
+        </main>
+
+    </div>
+
+    {{> aboutModal}}
+    {{> tosModal}}
+    {{> faqModal}}
+    {{> errorModal}}
+    {{> nicknameModal}}
+
+</template>

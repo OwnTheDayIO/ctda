@@ -1,0 +1,22 @@
+<template name="nicknameModal">
+    <div class="modal fade nickname-modal" id="setNicknameModal" tabindex="-1" role="dialog" aria-labelledby="setNicknameModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="setNicknameModalLabel">{{_ 'modal.nickname.title'}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input class="form-control" id="newNickname" placeholder="{{_ 'modal.nickname.placeholder'}}" value="{{getCurrentNickname}}">
+                    <small class="text-muted">{{_ 'generic.profanities'}}</small>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">{{_ 'generic.cancel'}}</button>
+                    <button type="button" class="btn btn-primary" data-action="set-nickname">{{_ 'modal.nickname.set'}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

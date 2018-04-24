@@ -1,0 +1,100 @@
+<template name="torch">
+    <div class="component-wrapper torch-page">
+
+        <div class="row">
+            <div class="col-md">
+                <div class="container d-none d-lg-block">
+                    <div class="row min-height align-items-end">
+                        <div class="forced-top left">
+                            {{> highestPriceComponent fakeMode=showFakeModeData showLoading=true tipPlacement="bottom"}}
+                        </div>
+
+                        <div class="col">
+                            {{#if showInfoComponent}}
+                                {{> quickAboutComponent}}
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="container min-height torch-bg">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-6 col-md-12 col-lg-11 col-xl-9">
+                            {{> torchRunnerComponent}}
+                        </div>
+                    </div>
+                    <div class="row justify-content-center claim-component-row">
+                        <div class="col-sm-6 col-md-12 col-lg-11 col-xl-9">
+                            {{> claimComponent}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="container d-none d-lg-block">
+                    <div class="row min-height align-items-end">
+                        <div class="forced-top right">
+                            {{> highestMileageComponent fakeMode=showFakeModeData showLoading=true tipPlacement="bottom"}}
+                        </div>
+
+                        <div class="col">
+                            {{#if isReady}}
+                                {{#if hasInvalidBrowser}}
+                                    {{> quickInstructionsComponent}}
+                                {{else}}
+                                    {{#if hasInvalidNetwork}}
+                                        {{> invalidNetworkComponent}}
+                                        {{> quickInstructionsComponent}}
+                                    {{else}}
+                                        <div style="min-height:48vh;">
+                                            {{> ownTheDayComponent}}
+                                        </div>
+                                    {{/if}}
+                                {{/if}}
+                            {{else}}
+                                {{> detectingBrowserComponent}}
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row d-block d-lg-none">
+            <div class="col">
+                {{#if isReady}}
+                    {{#if hasInvalidBrowser}}
+                        {{> quickAboutComponent}}
+                        {{> quickInstructionsComponent}}
+                    {{else}}
+                        {{#if hasInvalidNetwork}}
+                            {{> invalidNetworkComponent}}
+                            {{> quickAboutComponent}}
+                            {{> quickInstructionsComponent}}
+                        {{else}}
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    {{> highestPriceComponent showLoading=true tipPlacement="bottom"}}
+                                </div>
+                                <div class="col-sm-6">
+                                    {{> highestMileageComponent showLoading=true tipPlacement="bottom"}}
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col">
+                                    {{> ownTheDayComponent}}
+                                </div>
+                            </div>
+                        {{/if}}
+                    {{/if}}
+                {{else}}
+                    {{> detectingBrowserComponent}}
+                {{/if}}
+            </div>
+
+        </div>
+
+        {{>footerComponent}}
+    </div>
+</template>

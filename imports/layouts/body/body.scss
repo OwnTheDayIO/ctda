@@ -1,0 +1,151 @@
+
+// Body Component
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.component-wrapper {
+  &.root-component.body-layout-component {
+
+    // Top Navigation
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    .navbar.fixed-top {
+
+      .navbar-brand {
+        position: relative;
+        padding: 1rem 2rem;
+        border-right: 0;
+
+        .brand-image-wrapper {
+          .brand-image {
+            @include pos-abs(8px); // T, R, B, L
+            @include size(32px);
+          }
+        }
+
+        .brand-text {
+          margin-left: 40px;
+        }
+      }
+
+      .nav-link {
+        padding: 1.2rem 1.5em;
+      }
+
+      .dropdown-item {
+        padding: 0.75rem 2rem;
+      }
+
+      .navbar-nav {
+        > li {
+          > a {
+            text-transform: uppercase;
+          }
+
+          &.owner-label-wrapper {
+            max-width: 200px;
+            padding-left: 15px;
+
+            > a {
+              max-width: 200px;
+
+              > .badge {
+                display: inline-block;
+                max-width: 170px;
+                margin-top: 13px;
+                font-size: 1.3rem;
+              }
+            }
+          }
+        }
+      }
+
+      .dapp-identicon.dapp-small {
+        margin: 6px 15px 0 15px;
+      }
+
+    }
+
+    // Primary Content
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    .content-primary {
+      padding: 20px;
+
+      .page-header {
+        margin: 10px 0;
+        font-size: large;
+        border: 0 none;
+      }
+
+      .sub-header {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .fake-mode {
+        opacity: 0.2;
+      }
+
+      .leader-board {
+        > a {
+          border-width: 1px 0 0;
+
+          &:hover,
+          &:focus,
+          &:active {
+            background-color: transparent;
+          }
+        }
+        .gold-medal-xs {
+          opacity: 1;
+
+          .owner-label {
+            width: 40rem;
+            font-size: $h3-font-size;
+          }
+        }
+        .silver-medal-xs {
+          opacity: 0.75;
+
+          .owner-label {
+            width: 35rem;
+            font-size: $h5-font-size;
+          }
+        }
+        .bronze-medal-xs {
+          opacity: 0.5;
+
+          .owner-label {
+            width: 30rem;
+            font-size: $h6-font-size;
+          }
+        }
+
+        &.right-side {
+          > a {
+            text-align: left;
+          }
+        }
+      }
+
+    }
+
+    .component-wrapper > .page-header {
+      margin-top: 0 !important;
+    }
+  }
+
+}
+
+@include media-breakpoint-up(sm) {
+  .component-wrapper {
+    &.root-component.body-layout-component {
+      .content-primary {
+        .leader-board {
+          &.right-side {
+            > a {
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
+}

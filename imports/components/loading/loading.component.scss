@@ -1,0 +1,41 @@
+
+// Loading Component
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.component-wrapper {
+  &.loading-component {
+    @include pos-rel(0, auto, auto, 0); // T, R, B, L
+    height: 100%;
+    width: 100%;
+    min-height: 200px;
+
+    .loading-wrapper {
+      display: block;
+      @include pos-abs(45%, auto, auto, 52%); // T, R, B, L
+      transform: translate(-50%, -50%);
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 42rem;
+      border: 1px solid $gray-700;
+      border-radius: $border-radius;
+      background-color: $gray-800;
+
+      .spinner-container {
+        @include pos-rel(40px, auto, auto, 35px); // T, R, B, L
+      }
+      .loading-message {
+        padding: 30px 30px 30px 70px;
+
+        p {
+          color: $gray-600;
+          font-size: 1em;
+
+          &.title {
+            color: $gray-400;
+            font-weight: bold;
+            font-size: 1.2em;
+          }
+        }
+      }
+    }
+  }
+}

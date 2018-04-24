@@ -1,0 +1,24 @@
+// Reference Variables & Mixins
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//@import (reference) "/imports/styles/lib/mixins.scss";
+
+// Torch Runner Component
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.component-wrapper {
+  &.torch-runner-component {
+
+    .card.torch-runner {
+      background-color: rgba(50, 56, 62, 0.9);
+
+      .card-body {
+        h3, p {
+          margin-bottom: 0;
+        }
+        .owner-label {
+          width: 100%;
+        }
+      }
+    }
+
+  }
+}

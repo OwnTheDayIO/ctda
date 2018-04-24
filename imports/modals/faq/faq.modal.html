@@ -1,0 +1,209 @@
+<template name="faqModal">
+    <div class="modal fade faq-modal" id="faqModal" tabindex="-1" role="dialog" aria-labelledby="faqModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="faqModalLabel">{{_ 'faq.topBanner.title'}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="{{_ 'generic.close'}}">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="container game-faq" id="gameFaq">
+                        <h4 class="mt-2 mb-2">{{{_ 'faq.block1'}}}</h4>
+
+                        <div class="row">
+                            <div id="accordion1" class="col">
+
+                                <div class="card">
+                                    <div class="card-header" role="tab" id="heading1">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link" data-toggle="collapse" data-parent="#accordion1" href="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                                {{{_ 'faq.questions.section1.q'}}}
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse1" class="collapse" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion1">
+                                        <div class="card-body">
+                                            <p>{{{_ 'faq.questions.section1.a.l1'}}}</p>
+                                            <ul>
+                                                <li>{{{_ 'faq.questions.section1.a.l2'}}}</li>
+                                                <li>{{{_ 'faq.questions.section1.a.l3'}}}</li>
+                                                <li>{{{_ 'faq.questions.section1.a.l4'}}}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header" role="tab" id="heading2">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link" data-toggle="collapse" data-parent="#accordion1" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                                                {{{_ 'faq.questions.section2.q'}}}
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="heading2" data-parent="#accordion1">
+                                        <div class="card-body">
+                                            <p>{{{_ 'faq.questions.section2.a.l1'}}}</p>
+                                            <ul>
+                                                <li>{{{_ 'faq.questions.section2.a.l2'}}}
+                                                    <ul>
+                                                        <li><a href="https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/">Firefox Extension</a>,</li>
+                                                        <li><a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn">Chrome Extension</a>,</li>
+                                                    </ul>
+                                                </li>
+                                                <li>{{{_ 'faq.questions.section2.a.l3'}}}</li>
+                                                <li>{{{_ 'faq.questions.section2.a.l4'}}}</li>
+                                                <li>{{{_ 'faq.questions.section2.a.l5'}}}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header" role="tab" id="heading3">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link" data-toggle="collapse" data-parent="#accordion1" href="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                                                {{{_ 'faq.questions.section3.q'}}}
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading3" data-parent="#accordion1">
+                                        <div class="card-body">
+                                            <ul>
+                                                <li>{{{_ 'faq.questions.section3.a.l1'}}}</li>
+                                                <li>{{{_ 'faq.questions.section3.a.l2'}}}</li>
+                                            </ul>
+                                            <p>{{{_ 'faq.questions.section3.a.l3'}}}</p>
+                                            <p>{{{_ 'faq.questions.section3.a.l4'}}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <h4 class="mt-5 mb-2">{{{_ 'faq.block2'}}}</h4>
+
+                        <div class="row">
+                            <div id="accordion2" class="col">
+
+                                <div class="card">
+                                    <div class="card-header" role="tab" id="heading4">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link" data-toggle="collapse" data-parent="#accordion2" href="#collapse4" aria-expanded="true" aria-controls="collapse4">
+                                                {{{_ 'faq.questions.section4.q'}}}
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse4" class="collapse" role="tabpanel" aria-labelledby="heading4" data-parent="#accordion2">
+                                        <div class="card-body">
+                                            <p>{{{_ 'faq.questions.section4.a.l1'}}}</p>
+                                            <p>{{{_ 'faq.questions.section4.a.l2'}}}</p>
+                                            <p>{{{_ 'faq.questions.section4.a.l3'}}}</p>
+                                            <p>{{{_ 'faq.questions.section4.a.l4'}}}</p>
+                                            <p>{{{_ 'faq.questions.section4.a.l5'}}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header" role="tab" id="heading5">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link" data-toggle="collapse" data-parent="#accordion2" href="#collapse5" aria-expanded="true" aria-controls="collapse5">
+                                                {{{_ 'faq.questions.section5.q'}}}
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse5" class="collapse" role="tabpanel" aria-labelledby="heading5" data-parent="#accordion2">
+                                        <div class="card-body">
+                                            <p>{{{getLinkedTranslationFor 'faq.questions.section5.a.l1'}}}</p>
+                                            <p>{{{_ 'faq.questions.section5.a.l2'}}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header" role="tab" id="heading6">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link" data-toggle="collapse" data-parent="#accordion2" href="#collapse6" aria-expanded="true" aria-controls="collapse6">
+                                                {{{_ 'faq.questions.section6.q'}}}
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse6" class="collapse" role="tabpanel" aria-labelledby="heading6" data-parent="#accordion2">
+                                        <div class="card-body">
+                                            <p>{{{_ 'faq.questions.section6.a.l1'}}}</p>
+                                            <p>{{{_ 'faq.questions.section6.a.l2'}}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header" role="tab" id="heading7">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link" data-toggle="collapse" data-parent="#accordion2" href="#collapse7" aria-expanded="true" aria-controls="collapse7">
+                                                {{{_ 'faq.questions.section7.q'}}}
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse7" class="collapse" role="tabpanel" aria-labelledby="heading7" data-parent="#accordion2">
+                                        <div class="card-body">
+                                            <p>{{{_ 'faq.questions.section7.a.l1'}}}</p>
+                                            <p>{{{_ 'faq.questions.section7.a.l2'}}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header" role="tab" id="heading8">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link" data-toggle="collapse" data-parent="#accordion2" href="#collapse8" aria-expanded="true" aria-controls="collapse8">
+                                                {{{_ 'faq.questions.section8.q'}}}
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse8" class="collapse" role="tabpanel" aria-labelledby="heading8" data-parent="#accordion2">
+                                        <div class="card-body">
+                                            <p>{{{getLinkedTranslationFor 'faq.questions.section8.a.l1'}}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header" role="tab" id="heading1">
+                                        <h4 class="mb-0">
+                                            <button class="btn btn-link" data-toggle="collapse" data-parent="#accordion2" href="#collapse9" aria-expanded="true" aria-controls="collapse9">
+                                                {{{_ 'faq.questions.section9.q'}}}
+                                            </button>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse9" class="collapse" role="tabpanel" aria-labelledby="heading9" data-parent="#accordion2">
+                                        <div class="card-body">
+                                            <p>{{{_ 'faq.questions.section9.a.l1'}}}</p>
+                                            <p>{{{_ 'faq.questions.section9.a.l2'}}}</p>
+                                            <ul>
+                                                <li>{{{_ 'faq.questions.section9.a.l3'}}}</li>
+                                                <li>{{{_ 'faq.questions.section9.a.l4'}}}</li>
+                                                <li>{{{_ 'faq.questions.section9.a.l5'}}}</li>
+                                            </ul>
+                                            <p>{{{_ 'faq.questions.section9.a.l6'}}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">{{_ 'generic.close'}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

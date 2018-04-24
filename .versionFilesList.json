@@ -1,0 +1,11 @@
+{
+  "name": "CryptoTorch-Dapp",
+  "currentVersion": "1.1.0",
+  "versionPrefix": "v",
+  "filesList": [
+    "package.json:package",
+    "README.md",
+    "client/main.html",
+    "imports/utils/global-constants.js"
+  ]
+}
